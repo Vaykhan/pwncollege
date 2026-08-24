@@ -16,10 +16,9 @@ xor ecx, ecx
 
 loop:
 mov cl, BYTE PTR [rdi]
-cmp cl, 0x30
-jnae neg_check			#jump to the end if non-digit byte is reached
-cmp cl, 0x39
-jnbe neg_check			# dont forget to simplify this jump into a single j* instruction
+sub cl, 0x30
+cmp cl, 0x10
+jnb neg_check	
 imul rdx, 10			# 10*a
 xor eax, eax
 mov al, BYTE PTR [rdi]
