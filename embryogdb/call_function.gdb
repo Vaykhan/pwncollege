@@ -1,0 +1,2 @@
+continue
+call (void)win()
